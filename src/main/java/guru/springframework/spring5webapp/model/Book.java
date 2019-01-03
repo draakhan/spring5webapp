@@ -1,7 +1,9 @@
 package guru.springframework.spring5webapp.model;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
+import java.util.StringJoiner;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -79,5 +81,29 @@ public class Book {
 
     public void setAuthors(Set<Author> authors) {
         this.authors = new HashSet<>(authors);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
+        return Objects.equals(id, book.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Book.class.getSimpleName() + "[", "]")
+            .add("id=" + id)
+            .add("title='" + title + "'")
+            .add("isbn='" + isbn + "'")
+            .add("publisher='" + publisher + "'")
+            .add("authors=" + authors)
+            .toString();
     }
 }
