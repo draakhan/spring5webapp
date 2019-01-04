@@ -34,7 +34,7 @@ public class Author {
     public Author(String firstName, String lastName, Set<Book> books) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.books = new HashSet<>(books);
+        this.books = books;
     }
 
     public Long getId() {
@@ -62,11 +62,11 @@ public class Author {
     }
 
     public Set<Book> getBooks() {
-        return new HashSet<>(books);
+        return books;
     }
 
     public void setBooks(Set<Book> books) {
-        this.books = new HashSet<>(books);
+        this.books = books;
     }
 
     @Override

@@ -40,7 +40,7 @@ public class Book {
         this.title = title;
         this.isbn = isbn;
         this.publisher = publisher;
-        this.authors = new HashSet<>(authors);
+        this.authors = authors;
     }
 
     public Long getId() {
@@ -76,11 +76,11 @@ public class Book {
     }
 
     public Set<Author> getAuthors() {
-        return new HashSet<>(authors);
+        return authors;
     }
 
     public void setAuthors(Set<Author> authors) {
-        this.authors = new HashSet<>(authors);
+        this.authors = authors;
     }
 
     @Override
